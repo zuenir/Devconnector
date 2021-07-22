@@ -1,3 +1,6 @@
 {
-    "mongoURI":"mongodb://zuenir:039188zc@donewithit-shard-00-00.xij2p.mongodb.net:27017,donewithit-shard-00-01.xij2p.mongodb.net:27017,donewithit-shard-00-02.xij2p.mongodb.net:27017/db_teste?ssl=true&replicaSet=atlas-89dhr9-shard-0&authSource=admin&retryWrites=true&w=majority"
+    "mongoURI":"mongodb://zuenir:039188zc@donewithit-shard-00-00.xij2p.mongodb.net:27017,donewithit-shard-00-01.xij2p.mongodb.net:27017,donewithit-shard-00-02.xij2p.mongodb.net:27017/db_teste?ssl=true&replicaSet=atlas-89dhr9-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "jwtSecret":"mysecrettoken",
+    "githubClientId":"648461692812fcc6e724",
+    "githubSecret":"f6f47a6c96673768ac31e2f2f4a8338408549826"
 } 
