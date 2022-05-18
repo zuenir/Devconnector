@@ -4,10 +4,11 @@ import Spinner from "../layout/Spinner";
 import { connect } from "react-redux";
 import { getProfileById } from "../../actions/profile";
 import { Link } from "react-router-dom";
-import ProfileTop from './ProfileTop';
-import ProfileAbout from './ProfileAbout';
+import ProfileTop from "./ProfileTop";
+import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
 import ProfileEducation from "./ProfileEducation";
+import ProfileGithub from "./ProfileGithub";
 
 const Profile = ({
   getProfileById,
@@ -36,16 +37,43 @@ const Profile = ({
               </Link>
             )}
 
-            <div class="profile-grid my-1">
-                <ProfileTop profile={profile} />
-                <ProfileAbout profile={profile}/>
-                <div class="profile-exp bg-white p-2">
-                    <ProfileExperience />
-                </div>
-                <div class="profile-edu bg-white p-2">
-                    <ProfileEducation/>
-                </div>
+          <div class="profile-grid my-1">
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+            <div class="profile-exp bg-white p-2">
+              <h2 class="text-primary">Experiences</h2>
+              {profile.experience.lenght > 0 ? (
+                <>
+                  {profile.experience.map((experience) => (
+                    <ProfileExperience
+                      key={experience._id}
+                      experience={experience}
+                    />
+                  ))}
+                </>
+              ) : (
+                <h4>No experience credentials</h4>
+              )}
             </div>
+            <div class="profile-edu bg-white p-2">
+              <h2 class="text-primary">Education</h2>
+              {profile.education.lenght > 0 ? (
+                <>
+                  {profile.education.map((education) => (
+                    <ProfileEducation
+                      key={education._id}
+                      education={education}
+                    />
+                  ))}
+                </>
+              ) : (
+                <h4>No education credentials</h4>
+              )}
+            </div>
+                {profile.githubusername && (
+                  <ProfileGithub usename={profile.githubusername} />
+                )}
+          </div>
         </>
       )}
     </>
