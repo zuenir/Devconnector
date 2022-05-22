@@ -1,6 +1,6 @@
 import React, { useStatee } from "react";
 import PropTypes from "prop-types";
-import { Link, withRouter } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { addEducation } from "../../actions/profile";
 import { connect } from "react-redux";
 
@@ -52,6 +52,7 @@ const AddEducation = ({ addEducation, history }) => {
             value={degree}
             onChange={e => onChange(e)}
             required
+            
           />
         </div>
         <div class="form-group">
@@ -96,4 +97,4 @@ AddEducation.propTypes = {
     addEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addEducation })(withRouter(AddEducation));
+export default connect(null, { addEducation })(AddEducation);

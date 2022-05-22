@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
 import { connect } from "react-redux";
-import { getProfileById } from "../../actions/profile";
+import { getCurrentProfileById } from "../../actions/profile";
 import { Link } from "react-router-dom";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
@@ -11,14 +11,14 @@ import ProfileEducation from "./ProfileEducation";
 import ProfileGithub from "./ProfileGithub";
 
 const Profile = ({
-  getProfileById,
+  getCurrentProfileById,
   profile: { profile, loading },
   auth,
   match,
 }) => {
   useEffect(() => {
-    getProfileById(match.params.id);
-  }, [getProfileById, match.params.id]);
+    getCurrentProfileById(match.params.id);
+  }, [getCurrentProfileById, match.params.id]);
 
   return (
     <>
@@ -81,7 +81,7 @@ const Profile = ({
 };
 
 Profile.propTypes = {
-  getProfileById: PropTypes.func.isRequired,
+  getCurrentProfileById: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -91,4 +91,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getProfileById })(Profile);
+export default connect(mapStateToProps, { getCurrentProfileById })(Profile);

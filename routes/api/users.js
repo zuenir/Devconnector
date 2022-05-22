@@ -5,13 +5,13 @@ const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/User");
+const User = require("../../models/User");
 const config = require("config");
 
 //@route  POST api/users
 //@desc   Register user
 //@access Public
-router.get(
+router.post(
   "/",
   [
     check("name", "Name is required").not().isEmpty(),
@@ -76,8 +76,6 @@ router.get(
             res.json({token});
         }
       );
-
-      res.send("User registered");
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Server Error");

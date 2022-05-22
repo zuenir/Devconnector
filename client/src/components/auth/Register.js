@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link, Redirect} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setAlert} from '../../actions/alert';
 import {register} from '../../actions/auth';
@@ -29,7 +29,7 @@ const Register = ({setAlert, register,isAuthenticated}) => {
 
   //Redirect if logged in
   if(isAuthenticated){
-    return <Redirect to="/dashboard"/>
+    return <Navigate to="/dashboard"/>
   }
 
   return (
@@ -43,6 +43,7 @@ const Register = ({setAlert, register,isAuthenticated}) => {
           <input
             type="text"
             placeholder="Name"
+            name="name"
             value={name}
             onChange={(e) => onChange(e)}
             required
@@ -51,6 +52,7 @@ const Register = ({setAlert, register,isAuthenticated}) => {
         <div className="form-group">
           <input
             type="email"
+            name="email"
             value={email}
             onChange={(e) => onChange(e)}
             placeholder="Email Address"
@@ -64,6 +66,7 @@ const Register = ({setAlert, register,isAuthenticated}) => {
           <input
             type="password"
             placeholder="Password"
+            name="password"
             value={password}
             onChange={(e) => onChange(e)}
             minlength="6"
@@ -73,6 +76,7 @@ const Register = ({setAlert, register,isAuthenticated}) => {
           <input
             type="password"
             placeholder="Confirm Password"
+            name="password2"
             value={password2}
             onChange={(e) => onChange(e)}
             minlength="6"

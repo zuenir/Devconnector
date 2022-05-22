@@ -1,6 +1,6 @@
 import React, {useStatee} from "react";
 import PropTypes from "prop-types";
-import { Link, withRouter } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { addExperience } from "../../actions/profile";
 import { connect } from "react-redux";
 
@@ -90,4 +90,4 @@ AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addExperience })(withRouter(AddExperience));
+export default connect(null, { addExperience })(AddExperience);
